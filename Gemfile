@@ -5,12 +5,14 @@ gem 'rails', '3.2.17'
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
-gem 'sqlite3'
+gem 'mysql2'
 gem "survey", "~> 0.1"
 gem 'devise','3.2.3'
 gem 'rolify','3.4.0'
 gem 'cancan','1.6.10'
 gem "therubyracer",'0.12.1'
+gem 'will_paginate','3.0.5'
+gem 'will_paginate-bootstrap'
 group :development do
   gem 'rails-erd'
 end

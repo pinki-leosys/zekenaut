@@ -1,0 +1,72 @@
+<h2>Sign up</h2>
+
+<form accept-charset="UTF-8" action="/users" class="new_user" id="new_user" method="post"><div style="margin:0;padding:0;display:inline"><input name="utf8" type="hidden" value="&#x2713;" /><input name="authenticity_token" type="hidden" value="eb8U5rjlhHXYlQcL9OKwAv6LuJna8LRdHqBUHaUI5iY=" /></div>
+
+  <table>
+    <tr>
+      <td>Email : </td>
+    <div class="field_with_errors">
+      <td><input id="user_email" name="user[email]" type="email" value="" /></td>
+      <td></td>
+    </div>
+    </tr>
+
+    <tr>
+    <td>Password : </td>
+    <td><input id="user_password" name="user[password]" type="password" /></td>
+    </tr>
+
+    <tr>
+    <td>Retype password : </td>
+    <td><input id="user_password_confirmation" name="user[password_confirmation]" type="password" /></td>
+    </tr>
+    <tr>
+    <td>
+    <h2> <span class="label label-default">Company Details:</span></h2>
+    </td>
+    </tr>
+
+    <tr>
+    <td>Name : </td>
+    <td><input id="company_name" name="company[name]" type="text" /></td>
+    </tr>
+
+    <tr>
+    <td>Address : </td>
+    <td><textarea cols="25" id="company_address" name="company[address]" rows="3">
+    </textarea></td>
+    </tr>
+
+    <tr>
+    <td>Category : </td>
+    <td><%= collection_select(:category, :category_id, Category.all, :id, :name, prompt: true) %></td> 
+    </tr>
+
+<tr>
+<td><%= submit_tag nil, :class => "form_submit", :id => "testValidate"%></td>
+</tr>
+</table>
+</form>
+<br />
+<%= render :partial => "devise/shared/links" %>
+
+
+<script type="text/javascript">
+$(document).ready(function() {
+    $('#testValidate').click(function() {
+        var sEmail = $('#user_email').val();
+
+
+        if ($.trim(sEmail).length == 0) {
+            alert('Please enter valid email address'); 
+            return false;
+        }
+        else {
+            return true;
+        }
+    });   
+});	
+
+</script>
+
+

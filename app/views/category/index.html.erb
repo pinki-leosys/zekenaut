@@ -1,0 +1,17 @@
+<div>
+  <h4>
+      Category Index
+  </h4>
+  <hr>
+  <%= link_to "New Category", category_path %><br/>
+<%= link_to "Solved Test", questions_path %>
+  <ul>
+    <% @categories.each do |cat| %>
+      <li>
+        <%= cat.name%>
+        <%#= link_to category.name, edit_survey(survey) %>
+      </li>
+    <% end %>
+  </ul>
+
+</div>

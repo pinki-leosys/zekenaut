@@ -1,0 +1,9 @@
+<h4>New Category</h4>
+
+
+ <%= form_for (@category), :url => {:action => "new" }  do |f| %>
+    <%= f.label :Name %>
+    <%= f.text_field :name %> <br/>
+
+    <%= f.submit %>
+<% end %>

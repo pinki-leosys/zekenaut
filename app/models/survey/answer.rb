@@ -14,7 +14,7 @@ class Survey::Answer < ActiveRecord::Base
   validates :option_id, :uniqueness => { :scope => [:attempt_id, :question_id] }
 
   # callbacks
-  after_create :characterize_answer
+#  after_create :characterize_answer
 
   def value
     points = (self.option.nil? ? Survey::Option.find(option_id) : self.option).weight

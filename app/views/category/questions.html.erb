@@ -1,0 +1,161 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>jQuery UI Accordion - Default functionality</title>
+  <link rel="stylesheet" href="//code.jquery.com/ui/1.10.4/themes/smoothness/jquery-ui.css">
+  
+  <script src="//code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+
+  <script>
+ /* $(function() {
+    $( "#accordion" ).accordion();
+  });*/
+  </script>
+<link href="http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700" rel="stylesheet"
+          type="text/css"/>
+  
+  <%= stylesheet_link_tag "examples"%>
+  <%= javascript_include_tag "jquery.barrating" %>
+
+
+</head>
+<body>    
+    <form accept-charset="UTF-8" action="/home/new" method="post"  id="contact-form" remote="true">
+<div id="accordion" class="questions">
+	 <% @questions.each do |question| %>
+  <h3 data-id="<%= question.id %>" >Question </h3>
+  <div>
+    <p> <div><%= question.id %>  <%= question.text %>  </div>      
+    </p>
+    
+ <div class="basic" id="Rating"></div>
+<input type="hidden" id="myHiddenField" name="<%= question.id %>" value="<%= question.id %>">
+     <div class="input select rating-c">
+            <label for="example-c">Rating values displayed on the bars:</label>
+            <select id="example-c" class="<%= question.id %>list select" name="select">
+                <option value=""></option>
+                <option value="1" id="<%= question.id %>"> 1</option>
+                <option value="2" id="<%= question.id %>"> 2 </option>
+                <option value="3" id="<%= question.id %>"> 3 </option>
+                <option value="4" id="<%= question.id %>"> 4 </option>
+                <option value="5" id="<%= question.id %>"> 5 </option>
+            </select>
+        </div>
+
+  </div>
+
+ <%end%>
+ </form>
+</div>
+
+<% if @questions.total_pages == @questions.current_page%> 
+  <button id="mybutton" class="mybutton"> Submit Test</button>
+<%end%>
+<input type="hidden" id="page_id" name="page_id" value="<%=params[:page]%>" />
+<%= will_paginate @questions, :class=>"mybutton page pagination" ,:data=> params[:page],     renderer: BootstrapPagination::Rails %>
+
+<!-- <button id="mybutton" class="mybutton"> Save Answers</button> -->
+</body>
+
+</html>
+
+
+<script type="text/javascript">
+$("#accordion").accordion({
+    collapsible: true,
+    autoHeight: false,
+    active: false
+});
+ $('#example-a').barrating();
+
+                $('#example-b').barrating('show', {
+                    readonly:true
+                });
+
+                $('#example-c, #example-d').barrating('show', {
+                    showValues:true,
+                    showSelectedRating:false
+                });
+
+                $('#example-e').barrating('show', {
+                    initialRating:'A',                    
+                    showValues:true,
+                    showSelectedRating:false,
+                    onSelect:function(value, text) {
+                        alert('Selected rating: ' + value);
+                    }
+                });
+
+                $('#example-f').barrating({ showSelectedRating:false });
+
+                $('#example-g').barrating('show', {
+                    showSelectedRating:true,
+                    reverse:true
+                });
+
+                $(this).addClass('deactivated');
+                $('.rating-disable').removeClass('deactivated');
+           
+
+            $('.rating-disable').click(function () {
+                $('select').barrating('destroy');
+                $(this).addClass('deactivated');
+                $('.rating-enable').removeClass('deactivated');
+            });
+
+            $('.rating-enable').trigger('click');
+
+            $('.mybutton').click(function()
+            {
+              var results = [];
+              var ques_id = [];
+              all_attempt=false;
+              var page = $('#page_id').val();   
+              $("select").each(function()   {
+                var val = $(this).val();            
+                var id = $(this).children(":selected").attr("id");
+                if(val !== '') (results.push(val) && ques_id.push(id));  
+                if($(this).val()=='')
+                {
+                  alert('Please answer All');
+                  all_attempt=false;
+                  return false;
+                }
+                else
+                {
+                  all_attempt=true;
+                }
+            });  
+  
+            console.log(results);  
+                if(all_attempt)
+                {
+
+                 $.ajax({
+                            type: "POST",
+                            url: "/category/answer",
+                            data: {results: JSON.stringify(results), ques_id: JSON.stringify(ques_id), page: page},
+                            success: function() { alert("Success!"); }
+                    });
+
+               }
+              });
+</script>
+ <script>
+   $(document).ready(function(){
+   $('p img').parent().hide();
+   $('p object').parent().hide();
+
+   });
+
+
+</script>
+
+
+<style>
+
+p { display : inline; }
+
+</style>

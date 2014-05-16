@@ -5,7 +5,22 @@ Zekenaut::Application.routes.draw do
     resources :attempts, :only => [:new, :create]
   end
 
-  devise_for :users
+  get '/category' => "category#new", :as => :categories
+  post "/category/new" => "category#new"
+
+  resources :category
+   
+  devise_for :users, :controllers => { :registrations =>'users/registrations' }
+
+  devise_scope :user do
+    get "/users" => "users/registrations#new", :as => :sign_up
+    post  '/category/answer' => "category#answer", as: :answer
+  end
+  
+  match  '/questions'   => "category#questions", as: :questions
+ 
+ root :to  => "category#home"
+
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
@@ -64,3 +79,4 @@ Zekenaut::Application.routes.draw do
   # Note: This route will make all actions in every controller accessible via GET requests.
   # match ':controller(/:action(/:id))(.:format)'
 end
+
