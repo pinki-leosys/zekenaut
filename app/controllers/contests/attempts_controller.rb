@@ -12,6 +12,7 @@ class Contests::AttemptsController < ApplicationController
     unless @survey.nil?
       @attempt = @survey.attempts.new
       @attempt.answers.build
+      @options=Survey::Option.all
     end
   end
 
@@ -29,7 +30,7 @@ class Contests::AttemptsController < ApplicationController
   private
 
   def load_active_survey
-    @survey =  Survey::Survey.active.first
+    @survey =  Survey::Survey.active.last
   end
 
   def normalize_attempts_data

@@ -1,5 +1,9 @@
 Zekenaut::Application.routes.draw do
 
+  get "home/index"
+
+  root to: "home#index"
+
   namespace :contests do
     resources :surveys
     resources :attempts, :only => [:new, :create]
