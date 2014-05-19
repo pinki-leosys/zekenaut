@@ -1,6 +1,8 @@
 class Survey::Survey < ActiveRecord::Base
 
   self.table_name = "survey_surveys"
+  belongs_to :category
+     attr_accessible :category_id
 
   acceptable_attributes :name, :description,
     :finished,

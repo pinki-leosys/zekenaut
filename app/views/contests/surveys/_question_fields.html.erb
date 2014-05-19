@@ -3,6 +3,7 @@
   <div class="field">
     <%= f.label :text %> <br />
     <%= f.text_field :text %>
+    <%= f.select(:question_type, options_for_select(select_type), {},{:class => "form-control", :id => "address_state"} )%>   
     <%= link_to_remove_field "Remove Question", f %>
   </div>
 </li>

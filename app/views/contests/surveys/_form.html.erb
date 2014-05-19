@@ -11,6 +11,9 @@
   <% end -%>
 
   <div class="field">
+   <%= f.label :category %> <br />
+    <%= f.select :category_id,  @categories.collect {|p| [ p.name, p.id ] }, {include_blank: 'None'} %>
+  </div>
     <%= f.label :name %> <br />
     <%= f.text_field :name %> <br />
     <%= f.label :attempts_number %> <br />

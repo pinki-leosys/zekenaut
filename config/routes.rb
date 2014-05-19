@@ -3,11 +3,14 @@ Zekenaut::Application.routes.draw do
   get "home/index"
 
   root to: "home#index"
+  match "/admin" => "home#admin", as: :admin
 
   namespace :contests do
     resources :surveys
     resources :attempts, :only => [:new, :create]
   end
+  resources :categories
+
 
   devise_for :users
 

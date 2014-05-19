@@ -8,6 +8,7 @@ class Contests::SurveysController < ApplicationController
 
   def new
     @survey = Survey::Survey.new
+    @categories=Category.all
   end
 
   def create
@@ -20,6 +21,7 @@ class Contests::SurveysController < ApplicationController
   end
 
   def edit
+        @categories=Category.all
   end
 
   def show
