@@ -1,0 +1,82 @@
+@import "bootstrap.css";
+
+@font-face {
+    font-family: 'open_sanslight';
+    src: url('../fonts/open-sans/OpenSans-Light-webfont.eot');
+    src: url('../fonts/open-sans/OpenSans-Light-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/open-sans/OpenSans-Light-webfont.woff') format('woff'),
+         url('../fonts/open-sans/OpenSans-Light-webfont.ttf') format('truetype'),
+         url('../fonts/open-sans/OpenSans-Light-webfont.svg#open_sanslight') format('svg');
+    font-weight: normal;
+    font-style: normal;
+	}
+
+@font-face {
+    font-family: 'open_sansbold';
+    src: url('../fonts/open-sans/OpenSans-Bold-webfont.eot');
+    src: url('../fonts/open-sans/OpenSans-Bold-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/open-sans/OpenSans-Bold-webfont.woff') format('woff'),
+         url('../fonts/open-sans/OpenSans-Bold-webfont.ttf') format('truetype'),
+         url('../fonts/open-sans/OpenSans-Bold-webfont.svg#open_sansbold') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+	font-family: 'MuseoSans-500';
+	src: url('../fonts/museo-sans/MuseoSans-500.eot?') format('eot'), 
+	     url('../fonts/museo-sans/MuseoSans-500.otf')  format('opentype'),
+	     url('../fonts/museo-sans/MuseoSans-500.woff') format('woff'), 
+	     url('../fonts/museo-sans/MuseoSans-500.ttf')  format('truetype'),
+	     url('../fonts/museo-sans/MuseoSans-500.svg#MuseoSans-500') format('svg');
+}
+@font-face {
+	font-family: 'MuseoSans-900';
+	src: url('../fonts/museo-sans/MuseoSans-900.eot?') format('eot'), 
+	     url('../fonts/museo-sans/MuseoSans-900.otf')  format('opentype'),
+	     url('../fonts/museo-sans/MuseoSans-900.woff') format('woff'), 
+	     url('../fonts/museo-sans/MuseoSans-900.ttf')  format('truetype'),
+	     url('../fonts/museo-sans/MuseoSans-900.svg#MuseoSans-900') format('svg');
+}
+@font-face {
+	font-family: 'LeagueGothic-Regular';
+	src: url('../fonts/league/LeagueGothic-Regular.eot?') format('eot'), 
+	     url('../fonts/league/LeagueGothic-Regular.otf')  format('opentype'),
+	     url('../fonts/league/LeagueGothic-Regular.woff') format('woff'), 
+	     url('../fonts/league/LeagueGothic-Regular.ttf')  format('truetype'),
+	     url('../fonts/league/LeagueGothic-Regular.svg#LeagueGothic-Regular') format('svg');
+}
+@font-face {
+    font-family: 'socicon';
+    src: url('../fonts/social-icons/socicon-webfont.eot');
+    src: url('../fonts/social-icons/socicon-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/social-icons/socicon-webfont.woff') format('woff'),
+         url('../fonts/social-icons/socicon-webfont.ttf') format('truetype'),
+         url('../fonts/social-icons/socicon-webfont.svg#sociconregular') format('svg');
+   		font-weight: normal;
+		font-style: normal;
+}
+body{
+font-family:open_sanslight;font-size: 13px;background-image:url('../images/body-back.jpg');background-repeat:repeat;}
+header{height:88px;background-color:#fdfdfd;}
+.logo{padding:37px 0 0 0;}
+.top-nav{float:right;padding-top:40px;font-size:14px;font-weight:bold;}
+.top-nav li{padding:0 20px;list-style:none;float:left;}
+.top-nav li:first-child{border-right:1px solid black;}
+.top-nav li a{color:#434141;}
+#banner{background-color:#dfe0e2;border-top:1px solid #6c6d6d;border-bottom:1px solid #6c6d6d;}
+#banner h1{font-family:MuseoSans-900;font-size:38px;position:absolute;z-index:1;padding:110px 0 0 18px;}
+#banner span{color:#24b4f0;}
+#steps{background-color:#00aeef;padding-bottom:50px;}
+#steps h1{font-family:LeagueGothic-Regular;font-size:31px;color:#fff;line-height:30px;letter-spacing:1px;}
+.step-no{width:55px;height:55px;border-radius:30px;background-color:#535356;text-align:center;padding-top:5px;
+font-family:MuseoSans-500;font-size:32px;color:#fff;position:relative;margin-top:-30px;}
+#steps p{color: #ddd9d9;font-size:14px;}
+#zakernaut-brief{background-color:#f1f2f3;padding:30px 0 40px 0;}
+#zakernaut-brief h1{font-family:MuseoSans-900;font-size:38px;line-height:47px;}
+#zakernaut-brief span{color:#24b4f0;border-top:1px solid #000;}
+#zakernaut-brief p{font-size:14px;}
+footer{background-color:#00aeef;padding:30px 0;}
+footer p{color:#fff;}
+.social-icons{float:right;}
+.social-icons li{list-style:none;float:left;padding:0 10px;}

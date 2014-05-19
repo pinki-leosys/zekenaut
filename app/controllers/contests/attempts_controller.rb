@@ -31,6 +31,7 @@ class Contests::AttemptsController < ApplicationController
 
   def load_active_survey
     @survey =  Survey::Survey.active.last
+    @questions= @survey.questions.paginate(:page => params[:page], :per_page => 5)
   end
 
   def normalize_attempts_data

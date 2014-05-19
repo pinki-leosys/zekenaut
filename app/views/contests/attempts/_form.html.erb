@@ -1,19 +1,132 @@
-<h1>Survey <%= @survey.name %></h1>
-<%= form_for(@attempt, :url => attempt_scope(@attempt)) do |f| %>
-  <%= f.fields_for :answers do |builder| %>
-    <ul>
-      <% @survey.questions.each_with_index do |question, index| %>
-        <li>
-          <p><%= question.text %></p>
-          <%= hidden_field_tag "survey_attempt[answers_attributes][#{index}][question_id]", question.id %>
-          <%# question.options.each do |option| %>
-            <%#= check_box_tag "survey_attempt[answers_attributes][#{index}][option_id][]", option.id %>
-            <%#= option.text %> <br/ >
-          <%# end -%>
-        <%=select_tag "survey_attempt[answers_attributes][#{index}][option_id][]", options_from_collection_for_select(@options, "id", "id") %>
-        </li>
-      <% end -%>
-    </ul>
-  <% end -%>
-  <%= f.submit "Submit" %>
-<% end -%>
+<link rel="stylesheet" href="//code.jquery.com/ui/1.10.4/themes/smoothness/jquery-ui.css">
+  
+  <script src="//code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+  
+  <%= stylesheet_link_tag "examples"%>
+  <%= javascript_include_tag "jquery.barrating" %>
+
+  <section id="banner">
+    <div class="container">
+      <div class="row">
+      <div class="col-md-12">
+
+      <%= render partial: "layouts/inner_header"%>
+
+      <%= form_for(@attempt, :url => attempt_scope(@attempt)) do |f| %>
+       <%= f.fields_for :answers do |builder| %>
+         <div id="accordion" class="questions">
+           <% @questions.each_with_index do |question, index| %>
+             <h3 data-id="<%= question.id %>" >Question </h3>
+             <div>
+              <p> <div><%= question.id %>  <%= question.text %>  </div>      
+              </p>
+              
+             <div class="basic" id="Rating"></div>
+             <input type="hidden" id="myHiddenField" name="<%= question.id %>" value="<%= question.id %>">
+             <div class="input select rating-c">
+               <label for="example-c">Rating values displayed on the bars:</label>
+                  <%=select_tag "survey_attempt[answers_attributes][#{index}][option_id][]", options_from_collection_for_select(@options, "id", "text"),{ class: " #{question.id}list select  mybutton",id: "example-c",include_blank: true, name: "optionname"} %>
+
+             </div>
+            </div>         
+           <% end %>
+         </div>
+         <%= will_paginate @questions, :class=>"mybutton page pagination", renderer: BootstrapPagination::Rails %>
+      <% end %>
+    <%= f.submit "Submit" %>
+   <% end %>
+
+    </div>
+  </div>
+</section>
+
+
+
+<script type="text/javascript">
+$("#accordion").accordion({
+    collapsible: true,
+    autoHeight: false,
+    active: false
+});
+ $('#example-a').barrating();
+
+                $('#example-b').barrating('show', {
+                    readonly:true
+                });
+
+                $('#example-c, #example-d').barrating('show', {
+                    showValues:true,
+                    showSelectedRating:false
+                });
+
+                $('#example-e').barrating('show', {
+                    initialRating:'A',                    
+                    showValues:true,
+                    showSelectedRating:false,
+                    onSelect:function(value, text) {
+                        alert('Selected rating: ' + value);
+                    }
+                });
+
+                $('#example-f').barrating({ showSelectedRating:false });
+
+                $('#example-g').barrating('show', {
+                    showSelectedRating:true,
+                    reverse:true
+                });
+
+                $(this).addClass('deactivated');
+                $('.rating-disable').removeClass('deactivated');
+           
+
+            $('.rating-disable').click(function () {
+                $('select').barrating('destroy');
+                $(this).addClass('deactivated');
+                $('.rating-enable').removeClass('deactivated');
+            });
+
+            $('.rating-enable').trigger('click');
+
+            $('.mybutton').click(function()
+            {
+              var results = [];
+              var ques_id = [];
+              all_attempt=false;
+              var page = $('#page_id').val();   
+              $("select").each(function()   {
+                var val = $(this).val();            
+                var id = $(this).children(":selected").attr("id");
+                if(val !== '') (results.push(val) && ques_id.push(id));  
+                if($(this).val()=='')
+                {
+                  alert('Please answer All');
+                  all_attempt=false;
+                  return false;
+                }
+                else
+                {
+                  all_attempt=true;
+                }
+            });  
+  
+            console.log(results);  
+                if(all_attempt)
+                {
+
+              /*   $.ajax({
+                            type: "POST",
+                            url: "/category/answer",
+                            data: {results: JSON.stringify(results), ques_id: JSON.stringify(ques_id), page: page},
+                            success: function() { alert("Success!"); }
+                    });*/
+
+               }
+              });
+              function test1234(element)
+              {
+                  var ID = $(element).val();
+                  alert(ID);
+              }
+</script>
+
+<%= render partial: "layouts/footer"%>

@@ -1,7 +1,83 @@
-<h1>This is home page </h1>
+<%= render partial: "layouts/header"%>
 
-<h3><%= link_to "Sign In", new_user_session_path,class:"btn btn-default" %></h3><br/>
+<h3><%#= link_to "Sign In", new_user_session_path,class:"btn btn-default" %></h3><br/>
 
-<h3><%= link_to "Sign Up",new_user_registration_path,class:"btn btn-default"%></h3>
+<h3><%#= link_to "Sign Up",new_user_registration_path,class:"btn btn-default"%></h3>
 
 
+	<section id="banner">
+		<div class="container">
+			<div class="row">
+			<div class="col-md-12">
+			<h1>REFINE YOUR <br>
+			<span>ENTERPRUNERSHIP</span>
+			</h1>
+			<img src="assets/banner.jpg" class="img-responsive">
+			</div>
+			</div>
+		</div>
+	</section>
+	
+	<section id="steps">
+		<div class="container">
+		<div class="row">
+			<div class="col-md-2">
+			<div class="step-no">1</div>
+			<h1>Login</h1>
+			<p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium,
+			totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae </p>
+			</div>
+			<div class="col-md-3">
+			<div class="step-no">2</div>
+			<h1>Get Your Questionnaire</h1>
+			<p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium,
+			totam rem architecto beatae.  eaque ipsa quae ab illo inventore veritatis et quasi  eaque ipsa quae ab illo inventore veritatis et quasi.  eaque ipsa quae ab illo inventore veritatis et quasi </p>
+			</div>
+			<div class="col-md-2">
+			<div class="step-no">3</div>
+			<h1>Get the Scores</h1>
+			<p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium,
+			totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae </p>
+			</div>
+			<div class="col-md-2">
+			<div class="step-no">4</div>
+			<h1>Analyse Results</h1>
+			<p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium,
+			totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae </p>
+			</div>
+			<div class="col-md-3">
+			<div class="step-no">5</div>
+			<h1>Grow Your Business</h1>
+			<p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium,
+			totam rem aperiam, eaque. Eaque ipsa quae ab illo inventore veritatis et quasi  eaque ipsa quae ab illo inventore veritatis et quasi  eaque ipsa quae ab illo inventore veritatis et quasi</p>
+			</div>
+		</div>
+	</section>
+	
+	<section id="zakernaut-brief">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-3">
+					<img src="assets/businessman.png" class="img-responsive">
+				</div>
+				<div class="col-md-9">
+				
+				
+				<h1>
+					ABOUT<br>
+					<span>ZAKERNAUT</span>
+				</h1>
+				<p>				
+					At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. </p>
+					
+					<p>Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus.
+Omnis voluptas assumenda est, omnis dolor repellendus. similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus. 
+			</p>
+				
+				</div>
+			</div>
+		</div>
+	</section>
+
+
+<%= render partial: "layouts/footer"%>

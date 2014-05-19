@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset = "UTF-8">
+<title>Zakernaut</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<%= stylesheet_link_tag "main" %>
+</head>
+<body>
+	<header>
+			<div class="container">
+			<div class="row">
+				<div class="col-md-4">
+					<a href="#">
+						<img src="/assets/logo.png" class="logo">
+					</a>
+				</div>
+				<div class="col-md-8">
+				<nav class="top-nav">
+					<ul>
+						<li><%= link_to "Sign Out", destroy_user_session_path, method: :delete %></li>
+						<!-- <li><a href="/users/sign_in">LOGIN</a></li>	 -->					
+					</ul>
+				</nav>
+				</div>
+		</div>
+	</header>
