@@ -10,6 +10,7 @@ Zekenaut::Application.routes.draw do
     resources :attempts, :only => [:new, :create]
   end
   resources :categories
+  resources :admins, only: :index
 
 
   devise_for :users

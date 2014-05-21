@@ -30,11 +30,12 @@ class Contests::AttemptsController < ApplicationController
   private
 
   def load_active_survey
-    @survey =  Survey::Survey.active.last
+            @survey =  Survey::Survey.active.last
     @questions= @survey.questions.paginate(:page => params[:page], :per_page => 5)
   end
 
   def normalize_attempts_data
+    # render json: params
     normalize_data!(params[:survey_attempt][:answers_attributes])
   end
 

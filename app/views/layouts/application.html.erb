@@ -1,12 +1,28 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Zekenaut</title>
+<meta charset = "UTF-8">
+<title>Zakernaut</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- <link href="main.css" rel="stylesheet" type="text/css"> -->
   <%= stylesheet_link_tag    "application", :media => "all" %>
   <%= javascript_include_tag "application" %>
+  <%= stylesheet_link_tag "main" %>
   <%= csrf_meta_tags %>
-</head>
+  </head>
+
 <body>
+
+<% unless flash[:notice].blank? && flash[:alert].blank? && flash[:message].blank? %>
+	<% flash.each do |name, msg| %>
+  <% if msg.is_a?(String) %>
+    <div class="alert alert-<%= name.to_s == 'notice' ? "success" : "danger" %>">
+      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>       
+      <%= content_tag :div, msg, :id => "flash_#{name}" %>
+    </div>
+  <% end %>
+  <% end %>
+  <% end %>
 
 <%= yield %>
 

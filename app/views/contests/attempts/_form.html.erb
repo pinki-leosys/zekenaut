@@ -4,13 +4,12 @@
   
   <%= stylesheet_link_tag "examples"%>
   <%= javascript_include_tag "jquery.barrating" %>
+      <%= render partial: "layouts/header"%>
 
   <section id="banner">
     <div class="container">
       <div class="row">
       <div class="col-md-12">
-
-      <%= render partial: "layouts/inner_header"%>
 
       <%= form_for(@attempt, :url => attempt_scope(@attempt)) do |f| %>
        <%= f.fields_for :answers do |builder| %>
@@ -18,28 +17,50 @@
            <% @questions.each_with_index do |question, index| %>
              <h3 data-id="<%= question.id %>" >Question </h3>
              <div>
-              <p> <div><%= question.id %>  <%= question.text %>  </div>      
+              <p> <div><%= question.text %>  </div>     
+            <%= hidden_field_tag "survey_attempt[answers_attributes][#{index}][question_id]", question.id %>
+ 
               </p>
-              
-             <div class="basic" id="Rating"></div>
-             <input type="hidden" id="myHiddenField" name="<%= question.id %>" value="<%= question.id %>">
              <div class="input select rating-c">
                <label for="example-c">Rating values displayed on the bars:</label>
-                  <%=select_tag "survey_attempt[answers_attributes][#{index}][option_id][]", options_from_collection_for_select(@options, "id", "text"),{ class: " #{question.id}list select  mybutton",id: "example-c",include_blank: true, name: "optionname"} %>
-
+                  <%#=select_tag "survey_attempt[answers_attributes][#{index}][option_id][]", options_from_collection_for_select(@options, "id", "text"),{ class: " #{question.id}list select  mybutton",id: "example-c",include_blank: true, name: "optionname"} %>
+                    <%=select_tag "survey_attempt[answers_attributes][#{index}][option_id][]", options_from_collection_for_select(@options, "id", "text"),{id:"example-c"} %>
              </div>
             </div>         
            <% end %>
          </div>
-         <%= will_paginate @questions, :class=>"mybutton page pagination", renderer: BootstrapPagination::Rails %>
+         <%= will_paginate @questions, :class=>"mybutton page pagination", renderer: BootstrapPagination::Rails, params: request.params %>
       <% end %>
     <%= f.submit "Submit" %>
    <% end %>
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     </div>
   </div>
 </section>
-
+<%= render partial: "layouts/footer"%>
 
 
 <script type="text/javascript">
@@ -129,4 +150,3 @@ $("#accordion").accordion({
               }
 </script>
 
-<%= render partial: "layouts/footer"%>

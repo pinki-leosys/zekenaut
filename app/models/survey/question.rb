@@ -6,7 +6,7 @@ class Survey::Question < ActiveRecord::Base
 
   # relations
  attr_accessible :categories_attributes,:question_type
-  belongs_to :survey
+  belongs_to :survey, foreign_key: :survey_id
   has_many   :options, :dependent => :destroy
   has_many :categories,class_name: "CompanyCategory"
    has_many :company_categories,through: :categories

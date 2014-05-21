@@ -1,30 +1,29 @@
 <!DOCTYPE html>
 <%#= stylesheet_link_tag 'main'%>
 
-<html lang="en">
-<head>
-<meta charset = "UTF-8">
-<title>Zakernaut</title>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<!-- <link href="main.css" rel="stylesheet" type="text/css"> -->
-<%= stylesheet_link_tag "main" %>
-</head>
-<body>
+
 	<header>
 			<div class="container">
 			<div class="row">
 				<div class="col-md-4">
-					<a href="#">
+					<a href="/">
 						<img src="/assets/logo.png" class="logo">
 					</a>
 				</div>
 				<div class="col-md-8">
 				<nav class="top-nav">
+				<% if current_user %>
+				<ul>
+				  <%= link_to "Sign Out", destroy_user_session_path, method: :delete %>
+				</ul>
+				<% else %>
 					<ul>
 						<li><a href="/users/sign_up">SIGNUP</a></li>
 						<li><a href="/users/sign_in">LOGIN</a></li>						
 					</ul>
+				<% end %>
 				</nav>
 				</div>
+		</div>
 		</div>
 	</header>

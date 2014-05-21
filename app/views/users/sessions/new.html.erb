@@ -1,3 +1,8 @@
+<%= render partial: "layouts/header"%>
+  <section id="banner">
+    <div class="container">
+      <div class="row">
+      <div class="col-md-12">
 <h2>Sign in</h2>
 
 <%= form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %>
@@ -14,4 +19,12 @@
   <div><%= f.submit "Sign in" %></div>
 <% end %>
 
+
 <%= render "users/shared/links" %>
+
+   </div>
+      </div>
+    </div>
+  </section>
+
+  <%= render partial: "layouts/footer"%>

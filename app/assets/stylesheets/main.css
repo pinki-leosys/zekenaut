@@ -2,69 +2,69 @@
 
 @font-face {
     font-family: 'open_sanslight';
-    src: url('../fonts/open-sans/OpenSans-Light-webfont.eot');
-    src: url('../fonts/open-sans/OpenSans-Light-webfont.eot?#iefix') format('embedded-opentype'),
-         url('../fonts/open-sans/OpenSans-Light-webfont.woff') format('woff'),
-         url('../fonts/open-sans/OpenSans-Light-webfont.ttf') format('truetype'),
-         url('../fonts/open-sans/OpenSans-Light-webfont.svg#open_sanslight') format('svg');
+    src: url('open-sans/OpenSans-Light-webfont.eot');
+    src: url('open-sans/OpenSans-Light-webfont.eot?#iefix') format('embedded-opentype'),
+         url('open-sans/OpenSans-Light-webfont.woff') format('woff'),
+         url('open-sans/OpenSans-Light-webfont.ttf') format('truetype'),
+         url('open-sans/OpenSans-Light-webfont.svg#open_sanslight') format('svg');
     font-weight: normal;
     font-style: normal;
 	}
 
 @font-face {
     font-family: 'open_sansbold';
-    src: url('../fonts/open-sans/OpenSans-Bold-webfont.eot');
-    src: url('../fonts/open-sans/OpenSans-Bold-webfont.eot?#iefix') format('embedded-opentype'),
-         url('../fonts/open-sans/OpenSans-Bold-webfont.woff') format('woff'),
-         url('../fonts/open-sans/OpenSans-Bold-webfont.ttf') format('truetype'),
-         url('../fonts/open-sans/OpenSans-Bold-webfont.svg#open_sansbold') format('svg');
+    src: url('open-sans/OpenSans-Bold-webfont.eot');
+    src: url('open-sans/OpenSans-Bold-webfont.eot?#iefix') format('embedded-opentype'),
+         url('open-sans/OpenSans-Bold-webfont.woff') format('woff'),
+         url('open-sans/OpenSans-Bold-webfont.ttf') format('truetype'),
+         url('open-sans/OpenSans-Bold-webfont.svg#open_sansbold') format('svg');
     font-weight: normal;
     font-style: normal;
 }
 
 @font-face {
 	font-family: 'MuseoSans-500';
-	src: url('../fonts/museo-sans/MuseoSans-500.eot?') format('eot'), 
-	     url('../fonts/museo-sans/MuseoSans-500.otf')  format('opentype'),
-	     url('../fonts/museo-sans/MuseoSans-500.woff') format('woff'), 
-	     url('../fonts/museo-sans/MuseoSans-500.ttf')  format('truetype'),
-	     url('../fonts/museo-sans/MuseoSans-500.svg#MuseoSans-500') format('svg');
+	src: url('museo-sans/MuseoSans-500.eot?') format('eot'), 
+	     url('museo-sans/MuseoSans-500.otf')  format('opentype'),
+	     url('museo-sans/MuseoSans-500.woff') format('woff'), 
+	     url('museo-sans/MuseoSans-500.ttf')  format('truetype'),
+	     url('museo-sans/MuseoSans-500.svg#MuseoSans-500') format('svg');
 }
 @font-face {
 	font-family: 'MuseoSans-900';
-	src: url('../fonts/museo-sans/MuseoSans-900.eot?') format('eot'), 
-	     url('../fonts/museo-sans/MuseoSans-900.otf')  format('opentype'),
-	     url('../fonts/museo-sans/MuseoSans-900.woff') format('woff'), 
-	     url('../fonts/museo-sans/MuseoSans-900.ttf')  format('truetype'),
-	     url('../fonts/museo-sans/MuseoSans-900.svg#MuseoSans-900') format('svg');
+	src: url('museo-sans/MuseoSans-900.eot?') format('eot'), 
+	     url('museo-sans/MuseoSans-900.otf')  format('opentype'),
+	     url('museo-sans/MuseoSans-900.woff') format('woff'), 
+	     url('museo-sans/MuseoSans-900.ttf')  format('truetype'),
+	     url('museo-sans/MuseoSans-900.svg#MuseoSans-900') format('svg');
 }
 @font-face {
 	font-family: 'LeagueGothic-Regular';
-	src: url('../fonts/league/LeagueGothic-Regular.eot?') format('eot'), 
-	     url('../fonts/league/LeagueGothic-Regular.otf')  format('opentype'),
-	     url('../fonts/league/LeagueGothic-Regular.woff') format('woff'), 
-	     url('../fonts/league/LeagueGothic-Regular.ttf')  format('truetype'),
-	     url('../fonts/league/LeagueGothic-Regular.svg#LeagueGothic-Regular') format('svg');
+	src: url('league/LeagueGothic-Regular.eot?') format('eot'), 
+	     url('league/LeagueGothic-Regular.otf')  format('opentype'),
+	     url('league/LeagueGothic-Regular.woff') format('woff'), 
+	     url('league/LeagueGothic-Regular.ttf')  format('truetype'),
+	     url('league/LeagueGothic-Regular.svg#LeagueGothic-Regular') format('svg');
 }
 @font-face {
     font-family: 'socicon';
-    src: url('../fonts/social-icons/socicon-webfont.eot');
-    src: url('../fonts/social-icons/socicon-webfont.eot?#iefix') format('embedded-opentype'),
-         url('../fonts/social-icons/socicon-webfont.woff') format('woff'),
-         url('../fonts/social-icons/socicon-webfont.ttf') format('truetype'),
-         url('../fonts/social-icons/socicon-webfont.svg#sociconregular') format('svg');
+    src: url('social-icons/socicon-webfont.eot');
+    src: url('social-icons/socicon-webfont.eot?#iefix') format('embedded-opentype'),
+         url('social-icons/socicon-webfont.woff') format('woff'),
+         url('social-icons/socicon-webfont.ttf') format('truetype'),
+         url('social-icons/socicon-webfont.svg#sociconregular') format('svg');
    		font-weight: normal;
 		font-style: normal;
 }
 body{
-font-family:open_sanslight;font-size: 13px;background-image:url('../images/body-back.jpg');background-repeat:repeat;}
+font-family:open_sanslight;font-size: 13px;background-image:url('body-back.jpg');background-repeat:repeat;}
 header{height:88px;background-color:#fdfdfd;}
 .logo{padding:37px 0 0 0;}
 .top-nav{float:right;padding-top:40px;font-size:14px;font-weight:bold;}
 .top-nav li{padding:0 20px;list-style:none;float:left;}
 .top-nav li:first-child{border-right:1px solid black;}
 .top-nav li a{color:#434141;}
-#banner{background-color:#dfe0e2;border-top:1px solid #6c6d6d;border-bottom:1px solid #6c6d6d;}
+#banner{background-color:#dfe0e2;}
 #banner h1{font-family:MuseoSans-900;font-size:38px;position:absolute;z-index:1;padding:110px 0 0 18px;}
 #banner span{color:#24b4f0;}
 #steps{background-color:#00aeef;padding-bottom:50px;}
