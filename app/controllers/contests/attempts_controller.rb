@@ -5,21 +5,33 @@ class Contests::AttemptsController < ApplicationController
   before_filter :load_active_survey
   before_filter :normalize_attempts_data, :only => :create
   before_filter :authenticate_user!
+  #before_filter :save_params, only: [:new]
 
   def new
     @participant = current_user # you have to decide what to do here
 
     unless @survey.nil?
-      @attempt = @survey.attempts.new
-      @attempt.answers.build
+       @questions= @survey.questions.paginate(:page => params[:page], :per_page => 5)
+       #@page_results = WillPaginate::Collection.create(current_page, per_page, @survey.questions) do |pager|
+           # pager.replace(@questions.to_array)
+         end
+       if params[:survey_attempt]
+        @attempt = @survey.attempts.new(params[:survey_attempt])
+            p "hiiiiiiiiiiiiii"
+            render json:params
+        else
+          @attempt = @survey.attempts.new
+          @attempt.answers.build  
+        end
+
       @options=Survey::Option.all
     end
   end
 
+
   def create
     @attempt = @survey.attempts.new(attempt_params)
     @attempt.participant = current_user
-
     if @attempt.valid? && @attempt.save
       redirect_to view_context.new_attempt, alert: I18n.t("attempts_controller.#{action_name}")
     else
@@ -30,8 +42,8 @@ class Contests::AttemptsController < ApplicationController
   private
 
   def load_active_survey
-            @survey =  Survey::Survey.active.last
-    @questions= @survey.questions.paginate(:page => params[:page], :per_page => 5)
+    @survey =  Survey::Survey.active.last
+   
   end
 
   def normalize_attempts_data

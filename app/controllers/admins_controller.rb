@@ -1,11 +1,13 @@
 class AdminsController < ApplicationController
   # GET /admins
   # GET /admins.json
+  layout false
   before_filter :authenticate_user!
   def index
       if current_user.has_role? :admin
        respond_to do |format|
         format.html # index.html.erb
+        format.json 
        end
      else
       redirect_to new_contests_attempt_path(current_user), alert: "you are not authorized for admin"

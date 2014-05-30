@@ -29,39 +29,17 @@
             </div>         
            <% end %>
          </div>
-         <%= will_paginate @questions, :class=>"mybutton page pagination", renderer: BootstrapPagination::Rails, params: request.params %>
-      <% end %>
+               <% end %>
+
+         <%= will_paginate @questions, :class=>"mybutton page pagination", renderer: BootstrapPagination::Rails, :params => { :user_id => params } %>
     <%= f.submit "Submit" %>
    <% end %>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
     </div>
   </div>
 </section>
 <%= render partial: "layouts/footer"%>
-
 
 <script type="text/javascript">
 $("#accordion").accordion({

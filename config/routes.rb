@@ -1,13 +1,14 @@
 Zekenaut::Application.routes.draw do
-
   get "home/index"
-
   root to: "home#index"
   match "/admin" => "home#admin", as: :admin
-
   namespace :contests do
     resources :surveys
-    resources :attempts, :only => [:new, :create]
+     resources :attempts, :only => [:new, :create] #do
+    #   collection do
+    #     get "after_pagination"
+    #   end
+    # end
   end
   resources :categories
   resources :admins, only: :index

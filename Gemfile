@@ -13,6 +13,7 @@ gem 'cancan','1.6.10'
 gem 'will_paginate','3.0.5'
 gem 'will_paginate-bootstrap'
 gem "therubyracer",'0.12.1'
+gem 'grape'
 group :development do
   gem 'rails-erd'
 end
